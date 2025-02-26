@@ -1,3 +1,4 @@
+
 Building a sematic book recommendation application powered by LLMs
 
 Users can write prompts to get book recommendations of what they have read or other custom user prompts and then filter by category and tone.
@@ -15,3 +16,4 @@ source video: https://www.youtube.com/watch?v=Q7mS1VHm3Yw
 
 
 <img width="1261" alt="image" src="https://github.com/user-attachments/assets/3b22c49d-9beb-4525-8b34-d93cbbf18e44" />
+
