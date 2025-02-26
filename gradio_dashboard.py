@@ -111,7 +111,7 @@ categories = ['All'] + sorted(books["simple_categories"].unique())
 tones = ["All", "Happy", "Surprising", "Angry", "Suspenseful", "Sad", "Disgust"]  # Fixed capitalization
 
 with gr.Blocks(theme=gr.themes.Glass()) as dashboard:
-    gr.Markdown('# Semantic Book Recommender')
+    gr.Markdown('# Book Recommender AI')
 
     with gr.Row():
         user_query = gr.Textbox(
@@ -120,15 +120,15 @@ with gr.Blocks(theme=gr.themes.Glass()) as dashboard:
         )
         category_dropdown = gr.Dropdown(
             choices=categories, 
-            label="Select a category:", 
+            label="Select a Category:", 
             value="All"
         )
         tone_dropdown = gr.Dropdown(
             choices=tones, 
-            label="Select the tone:", 
+            label="Select the Tone:", 
             value="All"
         )
-        submit_button = gr.Button('Find recommendations')
+        submit_button = gr.Button('Find Recommendations')
 
     gr.Markdown('## Recommendations')
 
@@ -142,4 +142,4 @@ with gr.Blocks(theme=gr.themes.Glass()) as dashboard:
 
 
 if __name__ == "__main__":
-    dashboard.launch()
+    dashboard.launch(share=True, server_name="0.0.0.0")
