@@ -1,12 +1,14 @@
 Building a sematic book recommendation application powered by LLMs
 
+Users can write prompts to get book recommendations of what they have read or other custom user prompts and then filter by category and tone.
+
+how it works:
+
 1. Applied LLMs to retrieve data from a Database based on user prompts model: (Open AI API)
 
 2. Used zero-shot text classification to normalize categories model: (facebook/bart-large-mnli)
 
 3. Used sentiment analysis to classify books by tone model: (j-hartmann/emotion-english-distilroberta-base)
-
-Users can 
 
 
 source video: https://www.youtube.com/watch?v=Q7mS1VHm3Yw
