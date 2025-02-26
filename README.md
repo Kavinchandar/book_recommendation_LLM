@@ -1,3 +1,9 @@
+---
+title: book_recommendation_LLM
+app_file: gradio_dashboard.py
+sdk: gradio
+sdk_version: 5.15.0
+---
 
 Building a sematic book recommendation application powered by LLMs
 
