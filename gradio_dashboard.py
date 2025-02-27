@@ -12,8 +12,7 @@ from langchain_chroma import Chroma
 import gradio as gr
 
 load_dotenv()
-client = openai.OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-
+client = openai.OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 
 books = pd.read_csv("books_with_emotions.csv")
 books["large_thumbnail"] = books["thumbnail"] + "&fife=w800"
