@@ -3,7 +3,6 @@ import pandas as pd
 import numpy as np
 from dotenv import load_dotenv
 import openai
-from openai import OpenAI
 
 from langchain_community.document_loaders import TextLoader
 from langchain_openai import OpenAIEmbeddings
@@ -13,7 +12,8 @@ from langchain_chroma import Chroma
 import gradio as gr
 
 load_dotenv()
-openai.api_key = os.getenv("OPENAI_API_KEY")
+client = openai.OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
 
 books = pd.read_csv("books_with_emotions.csv")
 books["large_thumbnail"] = books["thumbnail"] + "&fife=w800"
@@ -28,14 +28,14 @@ CHROMA_DB_PATH = "chroma_db"
 
 # Load or Create ChromaDB
 if os.path.exists(CHROMA_DB_PATH):
-    db_books = Chroma(persist_directory=CHROMA_DB_PATH, embedding_function=OpenAIEmbeddings(openai_api_key=openai.api_key))
+    db_books = Chroma(persist_directory=CHROMA_DB_PATH, embedding_function=OpenAIEmbeddings(openai_api_key=client.api_key))
     print("Loaded existing Chroma vector database.")
 else:
     print("Creating a new Chroma vector database...")
     raw_documents = TextLoader("tagged_description.txt").load()
     text_splitter = CharacterTextSplitter(separator="\n", chunk_size=0, chunk_overlap=0)
     documents = text_splitter.split_documents(raw_documents)
-    db_books = Chroma.from_documents(documents, OpenAIEmbeddings(openai_api_key=openai.api_key), persist_directory=CHROMA_DB_PATH)
+    db_books = Chroma.from_documents(documents, OpenAIEmbeddings(openai_api_key=client.api_key), persist_directory=CHROMA_DB_PATH)
     db_books.persist()
     print("Chroma vector database created and saved.")
 
