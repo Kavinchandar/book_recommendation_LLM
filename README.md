@@ -7,6 +7,9 @@ sdk_version: 5.15.0
 
 Building a sematic book recommendation application powered by LLMs
 
+try it yourself: https://huggingface.co/spaces/kavinchandar/book_recommendation_LLM/settings
+
+
 Users can write prompts to get book recommendations of what they have read or other custom user prompts and then filter by category and tone.
 
 how it works:
